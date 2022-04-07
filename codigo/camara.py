@@ -1,10 +1,11 @@
-#!/usr/bin/env python
-
-from picamera import PiCamera
-from time import sleep
-
-camera = PiCamera()
-camera.start_preview()
-sleep(5)
-camera.capture('picture3.jpg')
-camera.stop_preview()
+import cv2
+captura = cv2.VideoCapture(0)
+while (captura.isOpened()):
+  ret, imagen = captura.read()
+  if ret == True:
+    cv2.imshow('video', imagen)
+    if cv2.waitKey(1) & 0xFF == ord('s'):
+      break
+  else: break
+captura.release()
+cv2.destroyAllWindows()
