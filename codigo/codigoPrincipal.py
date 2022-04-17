@@ -98,11 +98,6 @@ def detectar_hojas():
     
     cv2.imshow("Multiple Color Detection in Real-TIme", imageFrame) 
 
-    if cv2.waitKey(10) & 0xFF == ord('q'): 
-        cap.release() 
-        cv2.destroyAllWindows() 
-        break
-
 
 if __name__ == '__main__':
     board = pyfirmata.Arduino('/dev/ttyACM0')
