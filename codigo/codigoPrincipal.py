@@ -97,6 +97,7 @@ def detectar_hojas():
               
     
     cv2.imshow("Multiple Color Detection in Real-TIme", imageFrame) 
+    print("listo")
 
 
 if __name__ == '__main__':
@@ -106,6 +107,7 @@ if __name__ == '__main__':
     LED1 = board.digital[10]
     LED.mode = pyfirmata.PWM
     LED1.mode = pyfirmata.PWM
+
     webcam = cv2.VideoCapture(0)
 
     while True:
