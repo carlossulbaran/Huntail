@@ -76,13 +76,10 @@ def detectar_hojas():
         area = cv2.contourArea(contour) 
         if(area > 300): 
             x, y, w, h = cv2.boundingRect(contour)
-            print("valores = ",valores)
-            valores[0], valores[1],valores[2],valores[3] = x,y,w,h
-            print("valores = ",valores)
-            print("posiciones = ",posiciones)
-            posiciones = posiciones.append(valores)
-            print("posiciones = ",posiciones)
 
+            valores[0], valores[1],valores[2],valores[3] = x,y,w,h
+
+            posiciones = posiciones.append(valores)
 
             imageFrame = cv2.rectangle(imageFrame,(x, y),  
                                        (x + w, y + h), 
