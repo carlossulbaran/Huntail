@@ -4,7 +4,7 @@ import numpy as np
 import cv2 
 
 
-posiciones = np.array([[0,0,0]])
+posiciones = np.array([[0,0,0,0]])
 valores = np.array([[0,0,0,0]])
 
 def detectar_hojas():
@@ -104,6 +104,7 @@ def detectar_hojas():
               
     
     cv2.imshow("Multiple Color Detection in Real-TIme", imageFrame) 
+    print(posiciones)
     if cv2.waitKey(10) & 0xFF == ord('q'): 
         cap.release() 
         cv2.destroyAllWindows() 
