@@ -3,6 +3,10 @@ import time
 import numpy as np 
 import cv2 
 
+
+posiciones = np.array([[0,0,0]])
+valores = np.array([[0,0,0,0]])
+
 def detectar_hojas():
     _, imageFrame = webcam.read()
 
@@ -70,7 +74,10 @@ def detectar_hojas():
     for pic, contour in enumerate(contours): 
         area = cv2.contourArea(contour) 
         if(area > 300): 
-            x, y, w, h = cv2.boundingRect(contour) 
+            x, y, w, h = cv2.boundingRect(contour)
+
+            valores[0], valores[1],valores[2],valores[3] = x,y,w,h
+            posiciones = np.vstack((posiciones, valores[valores[:,0] < 4]))
             imageFrame = cv2.rectangle(imageFrame,(x, y),  
                                        (x + w, y + h), 
                                        (0, 255, 0), 2) 
