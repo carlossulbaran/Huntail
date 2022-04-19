@@ -90,7 +90,7 @@ def detectar_hojas():
                         cv2.FONT_HERSHEY_SIMPLEX,  
                         1.0,(0, 255, 0)) 
   
-    print(posiciones)
+    print("posiciones")
     # contours, hierarchy = cv2.findContours(blue_mask, 
     #                                        cv2.RETR_TREE, 
     #                                        cv2.CHAIN_APPROX_SIMPLE) 
