@@ -71,14 +71,14 @@ def detectar_hojas():
 
     posiciones = np.array([[0,0,0,0]])
     valores = np.array([[0,0,0,0]])
-      
+
     for pic, contour in enumerate(contours): 
         area = cv2.contourArea(contour) 
         if(area > 300): 
             x, y, w, h = cv2.boundingRect(contour)
-
-            valores[0,0], valores[0,1],valores[0,2],valores[0,3] = x,y,w,h
             print("valores = ",valores)
+            valores[0,0], valores[0,1],valores[0,2],valores[0,3] = x,y,w,h
+            
             
             posiciones = np.vstack((posiciones, valores[valores[:,0] < 4]))
             print(posiciones)
