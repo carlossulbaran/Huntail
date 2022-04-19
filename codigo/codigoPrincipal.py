@@ -2,7 +2,7 @@ import pyfirmata
 import time
 import numpy as np 
 import cv2 
-
+import time
 
 
 def detectar_hojas():
@@ -91,6 +91,7 @@ def detectar_hojas():
             cv2.putText(imageFrame, "Green Colour",(x, y), 
                         cv2.FONT_HERSHEY_SIMPLEX,  
                         1.0,(0, 255, 0)) 
+            time.slepp(3)
   
     print("posiciones = ",posiciones)
     # contours, hierarchy = cv2.findContours(blue_mask, 
