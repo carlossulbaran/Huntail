@@ -100,17 +100,18 @@ def detectar_hojas():
     if cv2.waitKey(10) & 0xFF == ord('q'): 
         cap.release() 
         cv2.destroyAllWindows() 
-        
-    print("listo")
 
 
 if __name__ == '__main__':
     board = pyfirmata.Arduino('/dev/ttyACM0')
     print("Communication Successfully started")
-    LED = board.digital[9]
-    LED1 = board.digital[10]
-    LED.mode = pyfirmata.PWM
-    LED1.mode = pyfirmata.PWM
+
+    motord = board.digital[9]
+    motori = board.digital[10]
+    conveyor = board.digital[11]
+
+    motord.mode = pyfirmata.PWM
+    motori.mode = pyfirmata.PWM
 
     webcam = cv2.VideoCapture(0)
 
