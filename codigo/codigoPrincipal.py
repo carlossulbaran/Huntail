@@ -79,9 +79,9 @@ def detectar_hojas():
             print("valores = ",valores)
             valores[0], valores[1],valores[2],valores[3] = x,y,w,h
             
-            
+            print("posiciones = ",posiciones)
             posiciones = posiciones.append(valores)
-            print(posiciones)
+            print("posiciones = ",posiciones)
 
 
             imageFrame = cv2.rectangle(imageFrame,(x, y),  
