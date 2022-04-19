@@ -78,7 +78,7 @@ def detectar_hojas():
             x, y, w, h = cv2.boundingRect(contour)
 
             valores[0,0], valores[0,1],valores[0,2],valores[0,3] = x,y,w,h
-            print(valores)
+            print("valores = ",valores)
             posiciones = np.vstack((posiciones, valores[valores[:,0] < 4]))
             print(posiciones)
 
@@ -91,7 +91,7 @@ def detectar_hojas():
                         cv2.FONT_HERSHEY_SIMPLEX,  
                         1.0,(0, 255, 0)) 
   
-    print("posiciones")
+    print("posiciones = ",posiciones)
     # contours, hierarchy = cv2.findContours(blue_mask, 
     #                                        cv2.RETR_TREE, 
     #                                        cv2.CHAIN_APPROX_SIMPLE) 
