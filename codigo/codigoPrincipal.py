@@ -80,7 +80,7 @@ def detectar_hojas():
             valores[0,0], valores[0,1],valores[0,2],valores[0,3] = x,y,w,h
             posiciones = np.vstack((posiciones, valores[valores[:,0] < 4]))
 
-            print(valores)
+            print(posiciones)
 
             imageFrame = cv2.rectangle(imageFrame,(x, y),  
                                        (x + w, y + h), 
@@ -127,4 +127,4 @@ if __name__ == '__main__':
     webcam = cv2.VideoCapture(0)
 
     while True:
-        detectar_hojas(posiciones)
+        detectar_hojas()
