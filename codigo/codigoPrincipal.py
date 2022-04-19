@@ -4,14 +4,13 @@ import numpy as np
 import cv2 
 
 
-posiciones = np.array([[0,0,0,0]])
-valores = np.array([[0,0,0,0]])
 
 def detectar_hojas():
     _, imageFrame = webcam.read()
 
     posiciones = np.array([[0,0,0,0]])
-    
+    valores = np.array([[0,0,0,0]])
+
     hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV) 
 
 
