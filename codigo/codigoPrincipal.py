@@ -4,8 +4,8 @@ import numpy as np
 import cv2 
 
 
-x = np.array([[0,0,0,0]])
-def detectar_hojas(x):
+xa = np.array([[0,0,0,0]])
+def detectar_hojas(xa):
     _, imageFrame = webcam.read()
 
     posiciones = np.array([[0,0,0,0]])
@@ -79,9 +79,9 @@ def detectar_hojas(x):
 
             valores[0,0], valores[0,1],valores[0,2],valores[0,3] = x,y,w,h
             print("valores = ",valores)
-            print(x)
-            x = np.vstack((x, valores[valores[:,0] < 4]))
-            print(x)
+            print(xa)
+            xa = np.vstack((xa, valores[valores[:,0] < 4]))
+            print(xa)
 
 
             imageFrame = cv2.rectangle(imageFrame,(x, y),  
@@ -92,7 +92,7 @@ def detectar_hojas(x):
                         cv2.FONT_HERSHEY_SIMPLEX,  
                         1.0,(0, 255, 0)) 
   
-    print("x = ",x)
+    print("xa = ",xa)
     # contours, hierarchy = cv2.findContours(blue_mask, 
     #                                        cv2.RETR_TREE, 
     #                                        cv2.CHAIN_APPROX_SIMPLE) 
@@ -129,6 +129,7 @@ if __name__ == '__main__':
     webcam = cv2.VideoCapture(0)
 
     while True:
-        detectar_hojas(x)
+        
+        detectar_hojas(xa)
 
         print("listo")
