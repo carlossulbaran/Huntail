@@ -10,6 +10,8 @@ valores = np.array([[0,0,0,0]])
 def detectar_hojas():
     _, imageFrame = webcam.read()
 
+    posiciones = np.array([[0,0,0,0]])
+    
     hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV) 
 
 
@@ -124,4 +126,4 @@ if __name__ == '__main__':
     webcam = cv2.VideoCapture(0)
 
     while True:
-        detectar_hojas()
+        detectar_hojas(posiciones)
