@@ -79,6 +79,9 @@ def detectar_hojas():
 
             valores[0,0], valores[0,1],valores[0,2],valores[0,3] = x,y,w,h
             posiciones = np.vstack((posiciones, valores[valores[:,0] < 4]))
+
+            print(valores)
+
             imageFrame = cv2.rectangle(imageFrame,(x, y),  
                                        (x + w, y + h), 
                                        (0, 255, 0), 2) 
@@ -105,7 +108,6 @@ def detectar_hojas():
               
     
     cv2.imshow("Multiple Color Detection in Real-TIme", imageFrame) 
-    print(posiciones)
     if cv2.waitKey(10) & 0xFF == ord('q'): 
         cap.release() 
         cv2.destroyAllWindows() 
