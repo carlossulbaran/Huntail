@@ -92,7 +92,7 @@ def detectar_hojas(x):
                         cv2.FONT_HERSHEY_SIMPLEX,  
                         1.0,(0, 255, 0)) 
   
-    print("posiciones = ",posiciones)
+    print("x = ",x)
     # contours, hierarchy = cv2.findContours(blue_mask, 
     #                                        cv2.RETR_TREE, 
     #                                        cv2.CHAIN_APPROX_SIMPLE) 
@@ -130,3 +130,5 @@ if __name__ == '__main__':
 
     while True:
         detectar_hojas(x)
+
+        print("listo")
