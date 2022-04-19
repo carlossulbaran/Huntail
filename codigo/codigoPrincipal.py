@@ -74,7 +74,7 @@ def detectar_hojas():
 
     for pic, contour in enumerate(contours): 
         area = cv2.contourArea(contour) 
-        print(area)
+        print(8000)
         if(area > 2000): 
             x, y, w, h = cv2.boundingRect(contour)
 
