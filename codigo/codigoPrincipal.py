@@ -4,8 +4,8 @@ import numpy as np
 import cv2 
 
 
-
-def detectar_hojas():
+x = np.array([[0,0,0,0]])
+def detectar_hojas(x):
     _, imageFrame = webcam.read()
 
     posiciones = np.array([[0,0,0,0]])
@@ -79,8 +79,9 @@ def detectar_hojas():
 
             valores[0,0], valores[0,1],valores[0,2],valores[0,3] = x,y,w,h
             print("valores = ",valores)
-            posiciones = np.vstack((posiciones, valores[valores[:,0] < 4]))
-            print(posiciones)
+
+            x = np.vstack((x, valores[valores[:,0] < 4]))
+            print(x)
 
 
             imageFrame = cv2.rectangle(imageFrame,(x, y),  
@@ -128,4 +129,4 @@ if __name__ == '__main__':
     webcam = cv2.VideoCapture(0)
 
     while True:
-        detectar_hojas()
+        detectar_hojas(x)
