@@ -79,7 +79,7 @@ def detectar_hojas(x):
 
             valores[0,0], valores[0,1],valores[0,2],valores[0,3] = x,y,w,h
             print("valores = ",valores)
-
+            print(x)
             x = np.vstack((x, valores[valores[:,0] < 4]))
             print(x)
 
