@@ -8,9 +8,6 @@ import cv2
 def detectar_hojas():
     _, imageFrame = webcam.read()
 
-    posiciones = np.array([[0,0,0,0]])
-    valores = np.array([[0,0,0,0]])
-
     hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV) 
 
 
@@ -71,6 +68,9 @@ def detectar_hojas():
     contours, hierarchy = cv2.findContours(green_mask, 
                                            cv2.RETR_TREE, 
                                            cv2.CHAIN_APPROX_SIMPLE) 
+
+    posiciones = np.array([[0,0,0,0]])
+    valores = np.array([[0,0,0,0]])
       
     for pic, contour in enumerate(contours): 
         area = cv2.contourArea(contour) 
