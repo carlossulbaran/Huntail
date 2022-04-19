@@ -78,6 +78,7 @@ def detectar_hojas():
             x, y, w, h = cv2.boundingRect(contour)
 
             valores[0,0], valores[0,1],valores[0,2],valores[0,3] = x,y,w,h
+            print(valores)
             posiciones = np.vstack((posiciones, valores[valores[:,0] < 4]))
             print(posiciones)
 
