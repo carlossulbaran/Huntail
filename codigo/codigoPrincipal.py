@@ -78,7 +78,7 @@ def detectar_hojas():
             x, y, w, h = cv2.boundingRect(contour)
             print("valores = ",valores)
             valores[0], valores[1],valores[2],valores[3] = x,y,w,h
-            
+            print("valores = ",valores)
             print("posiciones = ",posiciones)
             posiciones = posiciones.append(valores)
             print("posiciones = ",posiciones)
