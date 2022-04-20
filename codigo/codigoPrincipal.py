@@ -129,13 +129,6 @@ def ordenar(posiciones):
 
     return ordenada
 
-
-    
-
-
-
-    return posicionesOrdenadas
-
 if __name__ == '__main__':
     board = pyfirmata.Arduino('/dev/ttyACM0')
     print("Communication Successfully started")
