@@ -87,6 +87,8 @@ def detectar_hojas():
                                        (0, 255, 0), 2) 
             x1 = x + (w/2)
             y1 = y + (h/2)
+            print("x1 = ", x1)
+            print("y1 = ", y1)
             imageFrame = cv2.circle(imageFrame, (x1, y1), 5, (255,0,0), 2)
               
             cv2.putText(imageFrame, "hoja",(x, y), 
