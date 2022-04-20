@@ -75,7 +75,7 @@ def detectar_hojas():
     for pic, contour in enumerate(contours): 
         area = cv2.contourArea(contour) 
         if(area > 2000): 
-            print(8000)
+            
             x, y, w, h = cv2.boundingRect(contour)
 
             valores[0], valores[1],valores[2],valores[3] = x,y,w,h
@@ -85,8 +85,9 @@ def detectar_hojas():
             imageFrame = cv2.rectangle(imageFrame,(x, y),  
                                        (x + w, y + h), 
                                        (0, 255, 0), 2) 
+            imageFrame = cv2.circle(imageFrame, ((x+(w/2)),(y+(h/2)))), 5, (255,0,0), 2)
               
-            cv2.putText(imageFrame, "Green Colour",(x, y), 
+            cv2.putText(imageFrame, "hoja",(x, y), 
                         cv2.FONT_HERSHEY_SIMPLEX,  
                         1.0,(0, 255, 0)) 
   
