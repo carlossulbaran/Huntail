@@ -145,8 +145,6 @@ if __name__ == '__main__':
     while True:
         
         posiciones = detectar_hojas()
-        print(posiciones)
-
         posiciones = ordenar(posiciones)
         print(posiciones)
 
