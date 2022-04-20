@@ -87,8 +87,6 @@ def detectar_hojas():
                                        (0, 255, 0), 2) 
             x1 = x + (w/2)
             y1 = y + (h/2)
-            print("x1 = ", x1)
-            print("y1 = ", y1)
             imageFrame = cv2.circle(imageFrame, (int(x1), int(y1)), 5, (255,0,0), 2)
               
             cv2.putText(imageFrame, "hoja",(x, y), 
@@ -96,7 +94,6 @@ def detectar_hojas():
                         1.0,(0, 255, 0)) 
   
     posiciones = np.array(posiciones)
-    print("posiciones = ",posiciones)
     # contours, hierarchy = cv2.findContours(blue_mask, 
     #                                        cv2.RETR_TREE, 
     #                                        cv2.CHAIN_APPROX_SIMPLE) 
@@ -117,7 +114,27 @@ def detectar_hojas():
     if cv2.waitKey(10) & 0xFF == ord('q'): 
         cap.release() 
         cv2.destroyAllWindows() 
+    return posiciones
 
+def conveyor(valor):
+    conveyor.write(valor)
+
+def velocidadMotores(vd,vi):
+    motord.write(vd)
+    motori.write(vi)
+
+def ordenar(posiciones):
+
+    ordenada = sorted(posiciones, key=lambda orden: posiciones[1]
+
+    return ordenada
+
+
+    
+
+
+
+    return posicionesOrdenadas
 
 if __name__ == '__main__':
     board = pyfirmata.Arduino('/dev/ttyACM0')
@@ -134,6 +151,8 @@ if __name__ == '__main__':
 
     while True:
         
-        detectar_hojas()
-
+        posiciones = detectar_hojas()
+        print(posiciones)
+        posiciones = ordenar(posiciones)
+        print(posiciones)
         print("listo")
