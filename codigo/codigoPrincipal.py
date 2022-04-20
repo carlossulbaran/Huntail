@@ -79,9 +79,9 @@ def detectar_hojas():
             x, y, w, h = cv2.boundingRect(contour)
 
             valores[0], valores[1],valores[2],valores[3] = x,y,w,h
-
+            print(valores)
             posiciones.append(valores)
-
+            print(posiciones)
             imageFrame = cv2.rectangle(imageFrame,(x, y),  
                                        (x + w, y + h), 
                                        (0, 255, 0), 2) 
@@ -127,7 +127,7 @@ def ordenar(posiciones):
 
     ordenada = sorted(posiciones, key=lambda ok: ok[1],reverse=True)
 
-    return ordenada
+    return np.array(ordenada)
 
 if __name__ == '__main__':
     board = pyfirmata.Arduino('/dev/ttyACM0')
@@ -146,6 +146,6 @@ if __name__ == '__main__':
         
         posiciones = detectar_hojas()
         posiciones = ordenar(posiciones)
-        print(posiciones)
+        #print(posiciones)
 
         print("listo")
