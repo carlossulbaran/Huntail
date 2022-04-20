@@ -125,7 +125,7 @@ def velocidadMotores(vd,vi):
 
 def ordenar(posiciones):
 
-    ordenada = sorted(posiciones, key=lambda orden: print(ok))
+    ordenada = sorted(posiciones, key=lambda ok: print(ok))
 
     return ordenada
 
