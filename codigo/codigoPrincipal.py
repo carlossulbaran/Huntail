@@ -89,7 +89,7 @@ def detectar_hojas():
             y1 = y + (h/2)
             print("x1 = ", x1)
             print("y1 = ", y1)
-            imageFrame = cv2.circle(imageFrame, (x1, y1), 5, (255,0,0), 2)
+            imageFrame = cv2.circle(imageFrame, (int(x1), int(y1)), 5, (255,0,0), 2)
               
             cv2.putText(imageFrame, "hoja",(x, y), 
                         cv2.FONT_HERSHEY_SIMPLEX,  
