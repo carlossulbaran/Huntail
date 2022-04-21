@@ -90,7 +90,10 @@ def detectar_hojas():
                         1.0,(0, 255, 0)) 
   
     posiciones = np.array(posiciones)
-    posiciones = np.array(np.split(posiciones,(posiciones.shape[0]/4)))
+    try:
+        posiciones = np.array(np.split(posiciones,(posiciones.shape[0]/4)))
+    except:
+        posiciones = np.array([[0,0,0,0]])
     # contours, hierarchy = cv2.findContours(blue_mask, 
     #                                        cv2.RETR_TREE, 
     #                                        cv2.CHAIN_APPROX_SIMPLE) 
