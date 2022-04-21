@@ -92,6 +92,8 @@ def detectar_hojas():
     posiciones = np.array(posiciones)
     print("posiciones = ",posiciones)
     print(posiciones.shape)
+    poriciones = np.split(posiciones,4)
+    print("posiciones = ",posiciones)
     # contours, hierarchy = cv2.findContours(blue_mask, 
     #                                        cv2.RETR_TREE, 
     #                                        cv2.CHAIN_APPROX_SIMPLE) 
