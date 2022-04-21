@@ -153,6 +153,8 @@ def velocidad(posiciones):
     vd = vl - vg
     vi = vl + vg
 
+    vd = min(max(0,vd),120)
+    vi = min(max(0,vi),120)
     print("vd = ",vd)
     print("vi = ",vi)
     #velocidadMotores()
