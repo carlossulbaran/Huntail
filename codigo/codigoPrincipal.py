@@ -126,6 +126,8 @@ def ordenar(posiciones):
 
     return np.array(ordenada)
 
+def velocidad(posiciones):
+    print(posiciones[0,:])
 if __name__ == '__main__':
     board = pyfirmata.Arduino('/dev/ttyACM0')
     print("Communication Successfully started")
@@ -142,8 +144,9 @@ if __name__ == '__main__':
     while True:
         
         posiciones = detectar_hojas()
-        print("posiciones desordenadas= ",posiciones)
+
         posiciones = ordenar(posiciones)
-        print("posiciones ordenadas = ",posiciones)
+
+        velocidad(posiciones)
 
         print("listo")
