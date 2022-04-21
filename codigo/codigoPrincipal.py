@@ -90,10 +90,7 @@ def detectar_hojas():
                         1.0,(0, 255, 0)) 
   
     posiciones = np.array(posiciones)
-    print("posiciones = ",posiciones)
-    print(posiciones.shape)
     posiciones = np.array(np.split(posiciones,(posiciones.shape[0]/4)))
-    print("posiciones = ",posiciones)
     # contours, hierarchy = cv2.findContours(blue_mask, 
     #                                        cv2.RETR_TREE, 
     #                                        cv2.CHAIN_APPROX_SIMPLE) 
@@ -145,7 +142,8 @@ if __name__ == '__main__':
     while True:
         
         posiciones = detectar_hojas()
+        print("posiciones desordenadas= ",posiciones)
         posiciones = ordenar(posiciones)
-        #print(posiciones)
+        print("posiciones ordenadas = ",posiciones)
 
         print("listo")
