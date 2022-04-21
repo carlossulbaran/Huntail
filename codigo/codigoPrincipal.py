@@ -143,10 +143,11 @@ def velocidad(posiciones):
     y1 = target[1] + (target[3]/2)
 
     y1 = map(y1,0,480,-240,240)
-
+    
     x1 = map(x1,-320,320,0,100)
     
     vg = x1
+    print("vg = ",vg)
     vl = 20
 
     vd = vl - vg
