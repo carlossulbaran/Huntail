@@ -144,8 +144,17 @@ def velocidad(posiciones):
 
     y1 = map(y1,0,480,-240,240)
 
-    print("(",x1,",",y1,")")
+    x1 = map(x1,-320,320,0,100)
+    
+    vg = x1
+    vl = 20
 
+    vd = vl - vg
+    vi = vl + vg
+
+    print("vd = ",vd)
+    print("vi = ",vi)
+    #velocidadMotores()
 
 if __name__ == '__main__':
     board = pyfirmata.Arduino('/dev/ttyACM0')
