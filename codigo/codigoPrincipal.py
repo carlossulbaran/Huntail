@@ -126,8 +126,24 @@ def ordenar(posiciones):
 
     return np.array(ordenada)
 
+def map(x, in_min, in_max, out_min, out_max):
+		mapped =  float((x-in_min) * (out_max-out_min) / (in_max-in_min) + out_min)
+		return mapped 
+
 def velocidad(posiciones):
-    print(posiciones[0,:])
+    target = posiciones[0,:]
+
+    x1 = posiciones[0] + (posiciones[2]/2)
+
+    x1 = map(x1,0,640,-320,320)
+
+    y1 = posiciones[1] + (posiciones[3]/2)
+
+    y1 = map(y1,0,480,-240,240)
+
+    print("(",x1,",",y1,")")
+
+
 if __name__ == '__main__':
     board = pyfirmata.Arduino('/dev/ttyACM0')
     print("Communication Successfully started")
