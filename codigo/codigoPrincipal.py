@@ -133,11 +133,11 @@ def map(x, in_min, in_max, out_min, out_max):
 def velocidad(posiciones):
     target = posiciones[0,:]
 
-    x1 = posiciones[0] + (posiciones[2]/2)
+    x1 = target[0] + (target[2]/2)
 
     x1 = map(x1,0,640,-320,320)
 
-    y1 = posiciones[1] + (posiciones[3]/2)
+    y1 = target[1] + (target[3]/2)
 
     y1 = map(y1,0,480,-240,240)
 
