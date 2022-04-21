@@ -150,8 +150,8 @@ def velocidad(posiciones):
     print("vg = ",vg)
     vl = 20
 
-    vd = vl + vg
-    vi = vl - vg
+    vd = vl - vg
+    vi = vl + vg
 
     print("vd = ",vd)
     print("vi = ",vi)
