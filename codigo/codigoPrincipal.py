@@ -69,7 +69,7 @@ def detectar_hojas():
                                            cv2.RETR_TREE, 
                                            cv2.CHAIN_APPROX_SIMPLE) 
 
-    posiciones = [[0,0,0,0]]
+    posiciones = []
     valores = [0,0,0,0]
 
     for pic, contour in enumerate(contours): 
