@@ -1,10 +1,16 @@
+#Codigo de un Robot barco con el proposito de recoger algas
+#El robot cuenta con un conveyor para subir las algas y una camara para reconocerlas
+
+#controlar el arduino con la rpi
 import pyfirmata
+#para usar sleep
 import time
+#para manejar matrices
 import numpy as np 
-import cv2 
-import time
+#machine vision
+import cv2
 
-
+# se detectan las algas gracias al color verde y un filtro de area y se guardan las posiciones en una matriz
 def detectar_hojas():
     _, imageFrame = webcam.read()
 
@@ -115,24 +121,24 @@ def detectar_hojas():
         cap.release() 
         cv2.destroyAllWindows() 
     return posiciones
-
+#activar o desactivar el conveyor
 def conveyor(valor):
     conveyor.write(valor)
-
+#le enviamos la velocidad a los motores
 def velocidadMotores(vd,vi):
     motord.write(vd)
     motori.write(vi)
-
+#ordena de menor a mayor una matriz de vectores
 def ordenar(posiciones):
 
     ordenada = sorted(posiciones, key=lambda ok: ok[1],reverse=True)
 
     return np.array(ordenada)
-
+# convierte los datos
 def map(x, in_min, in_max, out_min, out_max):
 		mapped =  float((x-in_min) * (out_max-out_min) / (in_max-in_min) + out_min)
 		return mapped 
-
+#determina la velocidad de los motores dependiendo de la alga a la que se quiera ir
 def velocidad(posiciones):
     target = posiciones[0,:]
 
@@ -157,21 +163,26 @@ def velocidad(posiciones):
     vi = min(max(0,vi),120)
     print("vd = ",vd)
     print("vi = ",vi)
-    #velocidadMotores()
+    velocidadMotores()
 
 if __name__ == '__main__':
+    #conectarse con el arduino
     board = pyfirmata.Arduino('/dev/ttyACM0')
     print("Communication Successfully started")
 
+    #inicializar los pines de salida
     motord = board.digital[9]
     motori = board.digital[10]
     conveyor = board.digital[11]
-
+    
+    #seleccionar los pines digitales como salidas pwm
     motord.mode = pyfirmata.PWM
     motori.mode = pyfirmata.PWM
 
+    #inicializar la camara
     webcam = cv2.VideoCapture(0)
 
+    #Codigo general. no termina ya que esta constantemente en busqueda de algas
     while True:
         
         posiciones = detectar_hojas()
@@ -179,5 +190,3 @@ if __name__ == '__main__':
         posiciones = ordenar(posiciones)
 
         velocidad(posiciones)
-
-        print("listo")
