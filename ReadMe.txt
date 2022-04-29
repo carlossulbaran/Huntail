@@ -3,7 +3,7 @@ Hola
 Codigo de un Robot barco con el proposito de recoger algas
 El robot cuenta con un conveyor para subir las algas y una camara para reconocerlas
 
-El codigo reconoce el color verde de las algas y guarfa la posicion de las mismas en matrices
+El codigo reconoce el color verde de las algas y guarda la posicion de las mismas en matrices
 
 para determinar la mas cercana y dirigirse a esa posicion
 
@@ -32,3 +32,5 @@ Hardware, construccion, programacion y diseño:
 *carlos Sulbaran
 *Manuel Perozo
 
+Apoyo emocional:
+*Cristal Rivas
